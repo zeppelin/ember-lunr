@@ -8,7 +8,7 @@ export default Ember.Mixin.create({
         data = this.getProperties.apply(this, indexableKeys);
 
     this.lunr.add(type, data);
-  }.on('didLoad'),
+  }.on('didCreate', 'didLoad', 'didReload', 'didUpdate'),
 
   removeFromIndex: function() {
     var type = this.constructor.typeKey,
