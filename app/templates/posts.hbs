@@ -1,7 +1,9 @@
 <h3>Posts</h3>
 
+{{input type='search' value=searchString placeholder='Search posts'}}
+
 <ul>
-  {{#each}}
+  {{#each filteredContent}}
     <li>
       <h4>{{title}}</h4>
       <p>{{description}}</p>
