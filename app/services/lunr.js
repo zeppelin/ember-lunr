@@ -1,6 +1,6 @@
 /* global lunr */
 
-export default Ember.Object.extend({
+export default Ember.Object.extend(Ember.Evented, {
   indexes: {},
 
   createIndex: function(type, structure) {
@@ -9,10 +9,12 @@ export default Ember.Object.extend({
 
   add: function(type, dataHash) {
     this.indexes[type].add(dataHash);
+    this.trigger('didAddRecord', type, dataHash.id);
   },
 
   remove: function(type, id) {
     this.indexes[type].remove(id);
+    this.trigger('didRemoveRecord', type, id);
   },
 
   search: function(type, string) {
