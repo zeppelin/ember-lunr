@@ -1,9 +1,11 @@
 import Resolver from 'resolver';
 import lunr from 'appkit/initializers/lunr';
+import indexModels from 'appkit/initializers/index_models';
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
 Ember.Application.initializer(lunr);
+Ember.Application.initializer(indexModels);
 
 var App = Ember.Application.extend({
   LOG_ACTIVE_GENERATION: true,
