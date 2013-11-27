@@ -1,4 +1,9 @@
 import Resolver from 'resolver';
+import lunr from 'appkit/initializers/lunr';
+
+Ember.MODEL_FACTORY_INJECTIONS = true;
+
+Ember.Application.initializer(lunr);
 
 var App = Ember.Application.extend({
   LOG_ACTIVE_GENERATION: true,
